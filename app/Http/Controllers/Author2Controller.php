@@ -51,13 +51,13 @@ class Author2Controller extends Controller
 
     public function index()
     {
-        return $this->successResponse($this->authorService->obtainAuhtors()); 
+        return $this->successResponse($this->authorService->obtainAuthors()); 
     }
 
 
     public function add(Request $request)
     {
-        return $this->successResponse($this->authorService->createAuhtor($request->all(), Response::HTTP_CREATED));
+        return $this->successResponse($this->authorService->createAuthor($request->all(), Response::HTTP_CREATED));
     }
 
     /**
@@ -68,7 +68,7 @@ class Author2Controller extends Controller
 
     public function show($id)
     {
-        return $this->successResponse($this->authorService->obtainAuhtor($id));
+        return $this->successResponse($this->authorService->obtainAuthor($id));
     }
 
     /**
@@ -78,7 +78,7 @@ class Author2Controller extends Controller
     
     public function update(Request $request, $id)
     {
-        return $this->successResponse($this->authorService->editAuhtor($request->all(), $id));
+        return $this->successResponse($this->authorService->editAuthor($request->all(), $id));
     }
 
     /**
@@ -88,7 +88,7 @@ class Author2Controller extends Controller
 
     public function delete($id)
     {
-        return $this->successResponse($this->authorService->deleteAuhtor($id));
+        return $this->successResponse($this->authorService->deleteAuthor($id));
     }    
 }
 

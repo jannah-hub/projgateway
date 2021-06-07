@@ -26,6 +26,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 });
 */
 
+$router->group(['middleware' => 'client.credentials'], function () use ($router){
+
     // API GATEWAY FOR SITE1 USERS
     $router->get('/service1', 'Book1Controller@index'); //get all users record
     $router->post('/service1', 'Book1Controller@add'); //create new users record
@@ -41,5 +43,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->put('/service2/{id}', 'Author2Controller@update'); //update user record
     $router->patch('/service2/{id}', 'Author2Controller@update'); //update user record
     $router->delete('/service2/{id}', 'Author2Controller@delete'); //delete record
+
+});
 
 ?>

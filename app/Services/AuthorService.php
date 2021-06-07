@@ -12,10 +12,16 @@ class AuthorService {
     * @var string
     */
     public $baseUri;
+    /**
+         * The secret to consume the User1 Service
+         * @var string
+         */
+    public $secret;
 
     public function __construct()
     {
     $this->baseUri = config('services.service2.base_uri');
+    $this->secret = config('services.service2.secret');
     }
 
     /**
@@ -23,7 +29,7 @@ class AuthorService {
     * @return string
     */
  
-    public function obtainAuthor()
+    public function obtainAuthors()
     {
         return $this->performRequest('GET','/authors'); 
     }
@@ -32,7 +38,7 @@ class AuthorService {
     * Create one user using the User2 service
     * @return string
     */
-    public function createAuthors($data)
+    public function createAuthor($data)
     {
         return $this->performRequest('POST', '/authors', $data);
     }

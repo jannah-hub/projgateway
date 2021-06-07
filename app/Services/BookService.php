@@ -12,10 +12,16 @@ class BookService {
     * @var string
     */
     public $baseUri;
+    /**
+         * The secret to consume the User1 Service
+         * @var string
+         */
+    public $secret;
 
     public function __construct()
     {
     $this->baseUri = config('services.service1.base_uri');
+    $this->secret = config('services.service1.secret');
     }
 
     /**
