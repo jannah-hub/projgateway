@@ -19,30 +19,21 @@ $router->get('/', function () use ($router) {
  return $router->app->version();
 }); //this will point to your local directory
 
-/* old code
-// unsecure routes 
-$router->group(['prefix' => 'api'], function () use ($router) {
- $router->get('/users',['uses' => 'UserController@getUsers']);
-});
-*/
-
 $router->group(['middleware' => 'client.credentials'], function () use ($router){
 
-    // API GATEWAY FOR SITE1 USERS
-    $router->get('/service1', 'Book1Controller@index'); //get all users record
-    $router->post('/service1', 'Book1Controller@add'); //create new users record
-    $router->get('/service1/{id}', 'Book1Controller@show'); //get new users by id record
-    $router->put('/service1/{id}', 'Book1Controller@update'); //update user record
-    $router->patch('/service1/{id}', 'Book1Controller@update'); //update user record
-    $router->delete('/service1/{id}', 'Book1Controller@delete'); //delete record
+    // API GATEWAY FOR BOOK SERVICE
+    $router->get('/books', 'Book1Controller@index'); //Get all books
+    $router->post('/books', 'Book1Controller@add'); //Create a new books
+    $router->get('/books/{id}', 'Book1Controller@show'); //Get the book info based on author id
+    $router->put('/books/{id}', 'Book1Controller@update'); //Update book record based on author id
+    $router->delete('/books/{id}', 'Book1Controller@delete'); //Delete book record based on author id
 
-    // API GATEWAY FOR SITE2 USERS
-    $router->get('/service2', 'Author2Controller@index'); //get all users record
-    $router->post('/service2', 'Author2Controller@add'); //create new users record
-    $router->get('/service2/{id}', 'Author2Controller@show'); //get new users by id record
-    $router->put('/service2/{id}', 'Author2Controller@update'); //update user record
-    $router->patch('/service2/{id}', 'Author2Controller@update'); //update user record
-    $router->delete('/service2/{id}', 'Author2Controller@delete'); //delete record
+    // API GATEWAY FOR BOOK SERVICE
+    $router->get('/authors', 'Author2Controller@index'); //Get all authors
+    $router->post('/authors', 'Author2Controller@add'); //Create a new authors
+    $router->get('/authors/{id}', 'Author2Controller@show'); //Get the author info based on author id
+    $router->put('/authors/{id}', 'Author2Controller@update'); //Update author record based on author id
+    $router->delete('/authors/{id}', 'Author2Controller@delete'); //Delete author record based on author id
 
 });
 

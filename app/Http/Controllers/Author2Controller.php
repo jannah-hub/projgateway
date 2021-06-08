@@ -6,7 +6,7 @@ use Illuminate\Http\Response;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Services\AuthorService;
-//use App\UserModel;
+
 use DB;
 
 class Author2Controller extends Controller

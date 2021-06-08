@@ -20,8 +20,8 @@ class AuthorService {
 
     public function __construct()
     {
-    $this->baseUri = config('services.service2.base_uri');
-    $this->secret = config('services.service2.secret');
+    $this->baseUri = config('services.authors.base_uri');
+    $this->secret = config('services.authors.secret');
     }
 
     /**
