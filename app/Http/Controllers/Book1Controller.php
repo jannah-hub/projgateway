@@ -6,6 +6,7 @@ use Illuminate\Http\Response;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Services\BookService;
+use App\Services\AuthorService;
 //use App\UserModel;
 use DB;
 
@@ -18,6 +19,7 @@ class Book1Controller extends Controller
     * @var BookService
     */
     public $bookService;
+    public $authorService;
 
     /**
     * Create a new controller instance
@@ -25,6 +27,7 @@ class Book1Controller extends Controller
     */
     public function __construct(BookService $bookService){
         $this->bookService = $bookService;
+        $this->authorService = $authorService;
  }
 
 /*
@@ -57,6 +60,7 @@ class Book1Controller extends Controller
 
     public function add(Request $request)
     {
+        $this->authorService->obtainAuthor($request->authorid); //fgfhf
         return $this->successResponse($this->bookService->createBook($request->all(), Response::HTTP_CREATED));
     }
 
@@ -78,6 +82,7 @@ class Book1Controller extends Controller
     
     public function update(Request $request, $id)
     {
+        $this->authorService->obtainAuthor($request->authorid);
         return $this->successResponse($this->bookService->editBook($request->all(), $id));
     }
 

@@ -17,7 +17,7 @@
 
 $router->get('/', function () use ($router) {
  return $router->app->version();
-}); //this will point to your local directory
+}); 
 
 $router->group(['middleware' => 'client.credentials'], function () use ($router){
 
